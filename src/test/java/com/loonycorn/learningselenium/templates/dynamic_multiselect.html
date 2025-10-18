@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Multiselect Example</title>
+</head>
+<body>
+<h2>Dynamic Dropdown</h2>
+<h3>Select a Category</h3>
+<select id="categoryDropdown" onchange="updateSubcategories()">
+    <option value="">-- Select a Category --</option>
+    <option value="electronics">Electronics</option>
+    <option value="clothing">Clothing</option>
+    <option value="books">Books</option>
+    <option value="sports">Sports</option>
+</select>
+
+<h3>Subcategories</h3>
+<select id="subcategoryDropdown" disabled multiple>
+    <option value="">-- Select a Subcategory --</option>
+</select>
+
+<script>
+    const subcategories = {
+        electronics: ['Laptops', 'Smartphones', 'Tablets', 'Cameras'],
+        clothing: ['Men\'s Wear', 'Women\'s Wear', 'Kids Wear', 'Accessories'],
+        books: ['Fiction', 'Non-Fiction', 'Textbooks', 'Comics'],
+        sports: ['Team Sports', 'Individual Sports', 'Outdoor Activities', 'Fitness Equipment']
+    };
+
+    function updateSubcategories() {
+        const categoryDropdown = document.getElementById('categoryDropdown');
+        const subcategoryDropdown = document.getElementById('subcategoryDropdown');
+        const selectedCategory = categoryDropdown.value;
+
+        subcategoryDropdown.innerHTML = '<option value="">-- Select a Subcategory --</option>';
+
+        subcategoryDropdown.disabled = !selectedCategory;
+
+        if (selectedCategory) {
+            const subCategories = subcategories[selectedCategory];
+            for (const subcategory of subCategories) {
+                const option = document.createElement('option');
+                option.value = subcategory.toLowerCase().replace(/\s/g, '-');
+                option.textContent = subcategory;
+                subcategoryDropdown.appendChild(option);
+            }
+        }
+    }
+</script>
+</body>
+</html>
