@@ -2,22 +2,14 @@ package com.loonycorn.learningselenium;
 
 
 import com.loonycorn.learningselenium.utils.DriverFactory;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v140.network.Network;
-import org.openqa.selenium.devtools.v140.network.model.Request;
-import org.openqa.selenium.devtools.v140.network.model.Response;
 import org.openqa.selenium.devtools.v140.security.Security;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ChromeDevToolsTest {
 
